@@ -8,8 +8,10 @@
 
 var readline = require('readline'); // takes input from the User via command line 
 
-// Import message.js from utils
-var MESSAGE = require(__dirname + '/server/utils/message.js');
+// Imports from utils
+var MESSAGE = require(__dirname + '/server/utils/message.js'),
+    ROUTES  = require(__dirname + '/server/apiroutes/routes.js'),
+    CONFIG  = require(__dirname + '/server/config/config.js');
 
 // Building the Command line Tool Interface 
 var inputCollector = readline.createInterface({
@@ -26,6 +28,8 @@ console.log(MESSAGE.INIT_MESSAGE);
 */
 // Activate Listeners through line event
 inputCollector.on('line', (invoke) =>{
+    //calling routes
+    ROUTES(invoke.trim(), CONFIG)
     // invoke into a new line
     inputCollector.prompt();
 });
