@@ -11,10 +11,11 @@ Use the package manager [npm](https://www.npmjs.com/) to install [Nodejs] (https
 npm install <packagename>
 ```
 ## Steps
+```bash
 git clone <repo>
 npm install
 node app.js
-
+```
 
 ## Usage
 Run this command to find all the available commands

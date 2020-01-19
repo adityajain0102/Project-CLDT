@@ -9,10 +9,10 @@ var DEFERRED = require('deferred');
 var REQUESTIFY = require('requestify');
 
 //local configuration file import
-var CONFIG = require(__dirname + '/../server/config/config.js');
+var CONFIG = require('../config/config');
 
-const API_HOST = 'https://fourtytwowords.herokuapp.com';
-
+// apihost for words
+var API_HOST = 'https://fourtytwowords.herokuapp.com';
 
 //public exposed service functions
 var dictApi = {
@@ -23,7 +23,7 @@ var dictApi = {
      */
 
      getDefinitions: (word) => {
-        var apiUrl = `${API_HOST} + '/' + ${word} + '/' + 'definitions?api_key=' + ${CONFIG.API_KEY}`,
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'definitions?api_key=' + `${CONFIG.API_KEY}`,
         deferred = _callApi(apiUrl);
         return deferred;
      },
@@ -34,8 +34,8 @@ var dictApi = {
  */
 
     getSynonyms: function(word){
-        var apiUrl = `${API_HOST} + '/' + ${word} + '/' + 'synonyms?api_key=' + ${CONFIG.API_KEY}`,
-        deferred = _requestApi(apiUrl);
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'synonyms?api_key=' + `${CONFIG.API_KEY}`,
+        deferred = _callApi(apiUrl);
         return deferred;
     },
 
@@ -45,8 +45,19 @@ var dictApi = {
  */
 
     getAntonyms: function(word){
-        var apiUrl = `${API_HOST} + '/' + ${word} + '/' + 'antomyms?api_key=' + ${CONFIG.API_KEY}`,
-        deferred = _requestApi(apiUrl);
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'antomyms?api_key=' + `${CONFIG.API_KEY}`,
+        deferred = _callApi(apiUrl);
+        return deferred;
+    },
+
+/**
+ * Service for fetching examples from dictapi(fourtytwowords api).
+ * @param {String} word
+ */
+
+    getExamples: function(word){
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'examples?api_key=' + `${CONFIG.API_KEY}`,
+        deferred = _callApi(apiUrl);
         return deferred;
     },
 };

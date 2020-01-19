@@ -5,7 +5,7 @@
 */
 
 // local import from apiroutes
-var PRIMARY_ROUTES = require(__dirname + '/primaryRoutes.js');
+var PRIMARY_ROUTES = require('./primaryRoutes');
 
 /**
  *  This defines selection of route type , takes two parameters
@@ -14,7 +14,6 @@ var PRIMARY_ROUTES = require(__dirname + '/primaryRoutes.js');
  */
 
  function Routes(data, config) {
-
     //if either data or config not present return 
     if(!data || !config) {
         return;

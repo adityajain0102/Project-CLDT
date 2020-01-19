@@ -9,9 +9,9 @@
 var readline = require('readline'); // takes input from the User via command line 
 
 // Imports from utils
-var MESSAGE = require(__dirname + '/server/utils/message.js'),
-    ROUTES  = require(__dirname + '/server/apiroutes/routes.js'),
-    CONFIG  = require(__dirname + '/server/config/config.js');
+var MESSAGE = require('./server/utils/message'),
+    ROUTES  = require('./server/apiroutes/routes'),
+    CONFIG  = require('./server/config/config.js');
 
 // Building the Command line Tool Interface 
 var inputCollector = readline.createInterface({
@@ -19,10 +19,8 @@ var inputCollector = readline.createInterface({
     output:process.stdout,
     prompt: 'START> '
 });
-
 // Initial message for user
 console.log(MESSAGE.INIT_MESSAGE);
-
 /* 'line' event is emitted whenever the 'input' stream receives an end-of-line input
     This usually happens when user presses <Enter> or <Return> keys
 */

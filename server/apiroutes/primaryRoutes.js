@@ -1,15 +1,17 @@
+// import primaryRoutes
+var wordSearch = require('../controllers/wordSearch');
+
 /**
  * This defines the constructor for the primary route class
  * @param {String} data
  * @param {object} config
  */
-
+   var _app, _command, _word, _config
  function PrimaryRoutes(data, config) {
-
-    this._app  = data[0];
-    this._command = data[1];
-    this._word = data[2];
-
+    _app     = data[0];
+    _command = data[1];
+    _word    = data[2];
+    _config  = config;
  }
 
 /**
@@ -18,10 +20,13 @@
  */
 
  PrimaryRoutes.prototype.route = ()=> {
+    if(_app && _app == _config.APP) {
 
-    if(this._app) {
-        console.log(this._app);
-        switch(this._command) {}
+      switch(_command) {
+         case _config.COMMANDS.DEFINITIONS:
+            wordSearch.displayDefinitions(_word);
+            break;
+      }
     }
  };
 
