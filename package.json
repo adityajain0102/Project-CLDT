@@ -1,0 +1,17 @@
+{
+  "name": "command-line-dictionary-tool",
+  "version": "1.0.0",
+  "description": "This project deals with list of words access from third party api, user can know the definition, synonyms and antonyms even play a game with some conditions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Adityavardhan Nagamalli",
+  "license": "ISC",
+  "dependencies": {
+    "readline": "^1.3.0"
+    }
+}
