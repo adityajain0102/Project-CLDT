@@ -17,7 +17,7 @@ var Helpers = {
     showWordData: (heading, array)=> {
         // printing heading
         if(array.length > 0) 
-            console.log(colors.green(heading));
+            console.log(colors.green(heading) + '\n');
         // printing data
         array.forEach((element)=>{
             console.log(colors.blue(element + '\n'));

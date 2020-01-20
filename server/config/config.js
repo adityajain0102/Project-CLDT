@@ -21,7 +21,8 @@ var CONFIG = {
         SYNONYMS     : 'syn',
         ANTONYMS     : 'ant',
         EXAMPLES     : 'ex',
-        DICTIONARY   : 'dict'
+        DICTIONARY   : 'dict',
+        HELP         : '--help'
     }
 };
 

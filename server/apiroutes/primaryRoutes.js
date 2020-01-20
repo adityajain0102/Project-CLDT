@@ -24,8 +24,25 @@ var wordSearch = require('../controllers/wordSearch');
 
       switch(_command) {
          case _config.COMMANDS.DEFINITIONS:
-            wordSearch.displayDefinitions(_word);
+            wordSearch.displayDefinitions(_word);  // pass parameter as a value to display definitions
             break;
+         case _config.COMMANDS.SYNONYMS:
+            wordSearch.displaySynonyms(_word);  // pass parameter as a value to display synonyms
+            break;      
+         case _config.COMMANDS.ANTONYMS:
+            wordSearch.displayAntonyms(_word);  // pass parameter as a value to display antonyms
+            break;
+         case _config.COMMANDS.EXAMPLES:
+            wordSearch.displayExamples(_word);  // pass parameter as a value to display example
+            break;
+         case _config.COMMANDS.DICTIONARY:
+            wordSearch.showCompleteDictionary(_word);
+            break;
+         case _config.COMMANDS.HELP:
+            wordSearch.displayHelpCommands();  // display Help commands
+            break;
+         default:
+            wordSearch.defaultAction(_command);
       }
     }
  };

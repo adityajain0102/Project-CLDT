@@ -15,18 +15,14 @@ var HELPERS = require('../utils/helpers');
  * @param {String} word
  * @param {Object} data
  */
-
+ var _word, _definitions, _antonyms, _synonyms, _examples;
  function Dictionary(word, data) {
-    //  if(!data || word) {
-    //      return;
-    //  }
-
      // private members
-     this._word = word;
-     this._definitions = data['definitions']? data['definitions']:[];
-     this._antonyms = data['antonyms']? data['antonyms']:[];
-     this._synonyms = data['synonyms']? data['synonyms']:[];
-     this._examples = data['examples']? data['examples']:[];
+     _word = word;
+     _definitions = data['definitions']? data['definitions']:[];
+     _antonyms = data['antonyms']? data['antonyms']:[];
+     _synonyms = data['synonyms']? data['synonyms']:[];
+     _examples = data['examples']? data['examples']:[];
  }
 
  /**
@@ -36,19 +32,19 @@ var HELPERS = require('../utils/helpers');
 
   Dictionary.prototype.showDictionary = () => {
       //printing the word
-      console.log(COLORS.green('word: ' + this._word + '\n'));
+      console.log(COLORS.green('word: ' + _word + '\n'));
 
       //printing definitions
-      HELPERS.showWordData('DEFINITIONS', this._definitions);
+      HELPERS.showWordData('DEFINITIONS', _definitions);
 
       //printing synonyms
-      HELPERS.showWordData('Synonyms', this._synonyms);
+      HELPERS.showWordData('Synonyms', _synonyms);
 
       //printing antonyms
-      HELPERS.showWordData('Antonyms', this._antonyms);
+      HELPERS.showWordData('Antonyms', _antonyms);
 
       //printing examples
-      HELPERS.showWordData('Examples', this._examples);
+      HELPERS.showWordData('Examples', _examples);
   };
 
 // export dictionary module

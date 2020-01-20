@@ -34,7 +34,7 @@ var dictApi = {
  */
 
     getSynonyms: function(word){
-        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'synonyms?api_key=' + `${CONFIG.API_KEY}`,
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'relatedWords?api_key=' + `${CONFIG.API_KEY}`,
         deferred = _callApi(apiUrl);
         return deferred;
     },
@@ -45,7 +45,7 @@ var dictApi = {
  */
 
     getAntonyms: function(word){
-        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'antomyms?api_key=' + `${CONFIG.API_KEY}`,
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'relatedWords?api_key=' + `${CONFIG.API_KEY}`,
         deferred = _callApi(apiUrl);
         return deferred;
     },
@@ -60,6 +60,19 @@ var dictApi = {
         deferred = _callApi(apiUrl);
         return deferred;
     },
+
+    
+/**
+ * Service for fetching word of the day from dictapi(fourtytwowords api).
+ * here i am assuming that if word of the day is requested api would like this 
+ * @param {String} word
+ */
+    getWordOfTheDay: () =>{
+        var apiUrl = `${API_HOST}` + '/' + 'words/' +  'randomWord?api_key=' + `${CONFIG.API_KEY}`,
+        deferred = _callApi(apiUrl);
+        return deferred;
+
+    }
 };
 
 /**
