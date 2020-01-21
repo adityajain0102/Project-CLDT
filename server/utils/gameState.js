@@ -10,9 +10,6 @@ var GameState = {
     // toggle game on and off
     GAME_ENABLED  : false,
 
-    // if accept the answer
-    ANSWER_ENABLED : false,
-
     // number of hints given
     HINT_COUNTER  : 0,
 

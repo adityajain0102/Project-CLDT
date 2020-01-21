@@ -6,7 +6,7 @@
 
 // npm imports
 var colors = require('colors/safe');
-
+var __     = require('underscore');
 // Define all the helper functions
 
 var Helpers = {
@@ -22,7 +22,19 @@ var Helpers = {
         array.forEach((element)=>{
             console.log(colors.blue(element + '\n'));
         });
-    }
+    },
+
+/**
+ * Creates a jumble word for the given word and returns it
+ * @param {String} word
+ */
+
+ getJumbleWord : function(word) {
+     var wordsArray  = word.split(''),
+         jumbleArray = __.shuffle(wordsArray);
+
+         return jumbleArray.join('');
+  }
 };
 
 // exporting helper module

@@ -33,7 +33,7 @@ var SECONDARY_ROUTES = require('./secondaryRoutes');
     if(config['ENABLE_GAME_ROUTES'] == false) {
         new PRIMARY_ROUTES(data, options).route();
     }
-    else if(config['ENABLE_GAME_ROUTES'] == true) {
+    else if(config['GAME_ENABLED'] == true) {
         new SECONDARY_ROUTES(data, options).route();
     }
 };

@@ -28,9 +28,9 @@ var CONFIG = {
 
     //Game Inputs
     GAME_COMMANDS : {
-        TRY_AGAIN    : 1,
-        HINT         : 2,
-        QUIT         : 3
+        TRY_AGAIN    : '1',
+        HINT         : '2',
+        QUIT         : '3'
     },
 };
 
