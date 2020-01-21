@@ -9,9 +9,10 @@
 var readline = require('readline'); // takes input from the User via command line 
 
 // Imports from utils
-var MESSAGE = require('./server/utils/message'),
-    ROUTES  = require('./server/apiroutes/routes'),
-    CONFIG  = require('./server/config/config.js');
+var MESSAGE    = require('./server/utils/message'),
+    ROUTES     = require('./server/apiroutes/routes'),
+    CONFIG     = require('./server/config/config'),
+    GAME_STATE = require('./server/utils/gameState');
 
 // Building the Command line Tool Interface 
 var inputCollector = readline.createInterface({
@@ -27,7 +28,7 @@ console.log(MESSAGE.INIT_MESSAGE);
 // Activate Listeners through line event
 inputCollector.on('line', (invoke) =>{
     //calling routes
-    ROUTES(invoke.trim(), CONFIG)
+    ROUTES(invoke.trim(), CONFIG, GAME_STATE)
     // invoke into a new line
     inputCollector.prompt();
 });
