@@ -18,7 +18,7 @@ var MESSAGE    = require('./server/utils/message'),
 var inputCollector = readline.createInterface({
     input:process.stdin,
     output:process.stdout,
-    prompt: 'START> '
+    prompt: 'ENTER COMMAND> '
 });
 // Initial message for user
 console.log(MESSAGE.INIT_MESSAGE);
@@ -28,6 +28,7 @@ console.log(MESSAGE.INIT_MESSAGE);
 // Activate Listeners through line event
 inputCollector.on('line', (invoke) =>{
     //calling routes
+ console.log(invoke);
     ROUTES(invoke.trim(), CONFIG, GAME_STATE)
     // invoke into a new line
     inputCollector.prompt();

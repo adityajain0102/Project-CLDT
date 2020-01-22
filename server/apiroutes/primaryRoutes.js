@@ -15,9 +15,11 @@ var InputRoutes = require('../apiroutes/inputRoutes');
     _config    = options['config'];
     _gameState = options['gameState'];
  
-   // console.log("after", _config, _gameState); // checking for debug we are getting _config and _gameState data or not
+   // console.log("primary routes call"); // checking for debug we are getting _config and _gameState data or not
    }
 
+   // inheriting the basic structure
+   PrimaryRoutes.prototype   =   Object.create(InputRoutes);
 /**
  * This defines the function to detect the command type route and call feature
  * accordingly
@@ -30,21 +32,27 @@ var InputRoutes = require('../apiroutes/inputRoutes');
          case _config.COMMANDS.DEFINITIONS:
             wordSearch.displayDefinitions(_word);  // pass parameter as a value to display definitions
             break;
+
          case _config.COMMANDS.SYNONYMS:
             wordSearch.displaySynonyms(_word);  // pass parameter as a value to display synonyms
             break;      
+
          case _config.COMMANDS.ANTONYMS:
             wordSearch.displayAntonyms(_word);  // pass parameter as a value to display antonyms
             break;
+
          case _config.COMMANDS.EXAMPLES:
             wordSearch.displayExamples(_word);  // pass parameter as a value to display example
             break;
+
          case _config.COMMANDS.DICTIONARY:
-            wordSearch.showCompleteDictionary(_word);
+            wordSearch.showCompleteDictionary(_word); // pass parameter as a value to display dictionary
             break;
+
          case _config.COMMANDS.PLAY:
-             wordGame.startGame(_gameState);
+             wordGame.startGame(_gameState); // pass parameter as a value to start game
              break;
+
          case _config.COMMANDS.HELP:
             wordSearch.displayHelpCommands();  // display Help commands
             break;

@@ -21,16 +21,20 @@ function secondaryRoutes(input, options) {
 
     _input     =  input;
     _config    =  options['config'];
-    _gameState =   options['gameState']
+    _gameState =   options['gameState'];
 }
 
 // inheiting the basic structure
 secondaryRoutes.prototype = Object.create(INPUTROUTES);
 
+
+/**
+ * This defines the function to detect the command type route and call feature
+ * accordingly
+ */
 secondaryRoutes.prototype.route = function() {
-console.log("gameState", _gameState)
     if(_input){
-        switch(_input){
+        switch(_input[0]){
           case _config.GAME_COMMANDS.TRY_AGAIN:
               WORDGAME.nextChance();
               break;

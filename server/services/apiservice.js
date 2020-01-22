@@ -84,6 +84,8 @@ var dictApi = {
      var deferred = DEFERRED();
 
      REQUESTIFY.get(apiUrl).then((response)=> {
+        // console.log("apires", response)
+
          deferred.resolve(response);
      })
      .catch((error) =>{

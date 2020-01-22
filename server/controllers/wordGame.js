@@ -13,9 +13,8 @@ var WORDSEARCH   = require('../controllers/wordSearch');
 
 var COLORS   = require('colors/safe');
 var DEFERRED = require('deferred');
+
 // wordGame features
-
-
 var wordGame = {
 
 /**
@@ -35,6 +34,7 @@ var wordGame = {
      this.getGameWordData(gameState).then(function(word){
         // need to check whether gameState.WORD or response word
         deferredArray = self.getDataRelatedToWord(gameState.WORD, gameState);
+        console.log("defARRR", deferredArray)
        // self.askQuestion(gameState); // for invoking question earlier
 
         // once all the data fetched create and ask question 
@@ -134,15 +134,22 @@ getGameWordData : function(gameState) {
      }, function(error) {
          console.log(COLORS.red(MESSAGE.NO_DATA + 'antonyms'));
      });
+     
 
      // returning the array of promises
      defArray.push(processedDef.promise);
      defArray.push(processedSyn.promise);
      defArray.push(processedAnt.promise);
 
+     console.log('definitiondef', defArray)
+
      // return defArray
-     return defArray;
- },
+     setTimeout(()=> {
+         console.log('set')
+        return defArray;
+
+     },5000)
+    },
 
  /**
   *  invoke askQuestion function for fetched random word
@@ -179,7 +186,7 @@ getGameWordData : function(gameState) {
        var answerStatus;
 
        // first check against the word
-       if(gameState.WORD.toLowerCase() == answer.toLowerCase()) 
+       if(gameState.WORD !==null && gameState.WORD.toLowerCase() == answer.toLowerCase()) 
            answerStatus = true;
 
            // verify against asked synonyms of the word
@@ -260,7 +267,7 @@ getGameWordData : function(gameState) {
         }
   
       // printing the hint
-        UTILS.showArrayData(message, hint);
+        UTILS.showWordData(message, hint);
   
       // updating the value of  hint counter
        if(hint == 3)

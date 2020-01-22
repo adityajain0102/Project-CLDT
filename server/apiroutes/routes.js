@@ -16,9 +16,8 @@ var SECONDARY_ROUTES = require('./secondaryRoutes');
 
  function Routes(data, config, gameState) {
     //if either data or config not present return 
-    if(!data || !config || !gameState) {
+    if(!data || !config || !gameState) 
         return;
-    }
 
   // options to be passed to routes
   var options   = {
@@ -29,11 +28,13 @@ var SECONDARY_ROUTES = require('./secondaryRoutes');
     // split the data to extract app(./dict), command and word
     data = data.split(' ');
 
-    // select the type of routes either primary or word game related
-    if(config['ENABLE_GAME_ROUTES'] == false) {
+    // select the type of routes either primary or word game related ENABLE_GAME_ROUTES
+    if(gameState['GAME_ENABLED'] == false) {
+        console.log("primaryroutes call");
         new PRIMARY_ROUTES(data, options).route();
     }
-    else if(config['GAME_ENABLED'] == true) {
+    else if(gameState['GAME_ENABLED'] == true) {
+        console.log("game call");
         new SECONDARY_ROUTES(data, options).route();
     }
 };
