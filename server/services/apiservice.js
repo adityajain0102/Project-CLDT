@@ -22,54 +22,54 @@ var dictApi = {
      * @param {string} word
      */
 
-     getDefinitions: (word) => {
+    getDefinitions: (word) => {
         var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'definitions?api_key=' + `${CONFIG.API_KEY}`,
-        deferred = _callApi(apiUrl);
-        return deferred;
-     },
-
-/**
- * Service for fetching synonyms from dictapi(fourtytwowords api).
- * @param {String} word
- */
-
-    getSynonyms: function(word){
-        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'relatedWords?api_key=' + `${CONFIG.API_KEY}`,
-        deferred = _callApi(apiUrl);
+            deferred = _callApi(apiUrl);
         return deferred;
     },
 
-/**
- * Service for fetching antonyms from dictapi(fourtytwowords api).
- * @param {String} word
- */
+    /**
+     * Service for fetching synonyms from dictapi(fourtytwowords api).
+     * @param {String} word
+     */
 
-    getAntonyms: function(word){
+    getSynonyms: function (word) {
         var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'relatedWords?api_key=' + `${CONFIG.API_KEY}`,
-        deferred = _callApi(apiUrl);
+            deferred = _callApi(apiUrl);
         return deferred;
     },
 
-/**
- * Service for fetching examples from dictapi(fourtytwowords api).
- * @param {String} word
- */
+    /**
+     * Service for fetching antonyms from dictapi(fourtytwowords api).
+     * @param {String} word
+     */
 
-    getExamples: function(word){
+    getAntonyms: function (word) {
+        var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'relatedWords?api_key=' + `${CONFIG.API_KEY}`,
+            deferred = _callApi(apiUrl);
+        return deferred;
+    },
+
+    /**
+     * Service for fetching examples from dictapi(fourtytwowords api).
+     * @param {String} word
+     */
+
+    getExamples: function (word) {
         var apiUrl = `${API_HOST}` + '/' + 'word/' + `${word}` + '/' + 'examples?api_key=' + `${CONFIG.API_KEY}`,
-        deferred = _callApi(apiUrl);
+            deferred = _callApi(apiUrl);
         return deferred;
     },
 
-    
-/**
- * Service for fetching word of the day from dictapi(fourtytwowords api).
- * here i am assuming that if word of the day is requested api would like this 
- * @param {String} word
- */
-    getWordOfTheDay: () =>{
-        var apiUrl = `${API_HOST}` + '/' + 'words/' +  'randomWord?api_key=' + `${CONFIG.API_KEY}`,
-        deferred = _callApi(apiUrl);
+
+    /**
+     * Service for fetching word of the day from dictapi(fourtytwowords api).
+     * here i am assuming that if word of the day is requested api would like this 
+     * @param {String} word
+     */
+    getWordOfTheDay: () => {
+        var apiUrl = `${API_HOST}` + '/' + 'words/' + 'randomWord?api_key=' + `${CONFIG.API_KEY}`,
+            deferred = _callApi(apiUrl);
         return deferred;
 
     }
@@ -80,19 +80,19 @@ var dictApi = {
  * @param {String} url
  */
 
- function _callApi(apiUrl) {
-     var deferred = DEFERRED();
+function _callApi(apiUrl) {
+    var deferred = DEFERRED();
 
-     REQUESTIFY.get(apiUrl).then((response)=> {
+    REQUESTIFY.get(apiUrl).then((response) => {
         // console.log("apires", response)
 
-         deferred.resolve(response);
-     })
-     .catch((error) =>{
-         deferred.reject(error);
-     });
-     return deferred.promise;
- }
+        deferred.resolve(response);
+    })
+        .catch((error) => {
+            deferred.reject(error);
+        });
+    return deferred.promise;
+}
 
- // export dictApi
- module.exports = dictApi;
+// export dictApi
+module.exports = dictApi;

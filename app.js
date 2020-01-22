@@ -9,15 +9,15 @@
 var readline = require('readline'); // takes input from the User via command line 
 
 // Imports from utils
-var MESSAGE    = require('./server/utils/message'),
-    ROUTES     = require('./server/apiroutes/routes'),
-    CONFIG     = require('./server/config/config'),
+var MESSAGE = require('./server/utils/message'),
+    ROUTES = require('./server/apiroutes/routes'),
+    CONFIG = require('./server/config/config'),
     GAME_STATE = require('./server/utils/gameState');
 
 // Building the Command line Tool Interface 
 var inputCollector = readline.createInterface({
-    input:process.stdin,
-    output:process.stdout,
+    input: process.stdin,
+    output: process.stdout,
     prompt: 'ENTER COMMAND> '
 });
 // Initial message for user
@@ -26,9 +26,8 @@ console.log(MESSAGE.INIT_MESSAGE);
     This usually happens when user presses <Enter> or <Return> keys
 */
 // Activate Listeners through line event
-inputCollector.on('line', (invoke) =>{
+inputCollector.on('line', (invoke) => {
     //calling routes
- console.log(invoke);
     ROUTES(invoke.trim(), CONFIG, GAME_STATE)
     // invoke into a new line
     inputCollector.prompt();
@@ -39,7 +38,7 @@ inputCollector.on('line', (invoke) =>{
  */
 inputCollector.on('SIGINT', () => {
     inputCollector.question('Are you sure want to exit ? ', (userresponse) => {
-        if(userresponse.match(/^y(es)?$/i)) inputCollector.pause();
+        if (userresponse.match(/^y(es)?$/i)) inputCollector.pause();
     });
 });
 

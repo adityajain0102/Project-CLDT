@@ -5,7 +5,7 @@
 */
 
 // npm imports
-var COLORS  = require('colors/safe');
+var COLORS = require('colors/safe');
 
 // imports
 var HELPERS = require('../utils/helpers');
@@ -15,37 +15,37 @@ var HELPERS = require('../utils/helpers');
  * @param {String} word
  * @param {Object} data
  */
- var _word, _definitions, _antonyms, _synonyms, _examples;
- function Dictionary(word, data) {
-     // private members
-     _word = word;
-     _definitions = data['definitions']? data['definitions']:[];
-     _antonyms = data['antonyms']? data['antonyms']:[];
-     _synonyms = data['synonyms']? data['synonyms']:[];
-     _examples = data['examples']? data['examples']:[];
- }
+var _word, _definitions, _antonyms, _synonyms, _examples;
+function Dictionary(word, data) {
+    // private members
+    _word = word;
+    _definitions = data['definitions'] ? data['definitions'] : [];
+    _antonyms = data['antonyms'] ? data['antonyms'] : [];
+    _synonyms = data['synonyms'] ? data['synonyms'] : [];
+    _examples = data['examples'] ? data['examples'] : [];
+}
 
- /**
-  * This defines the function to display the dictionary data
-  * @param {object} config
-  */
+/**
+ * This defines the function to display the dictionary data
+ * @param {object} config
+ */
 
-  Dictionary.prototype.showDictionary = () => {
-      //printing the word
-      console.log(COLORS.green('word: ' + _word + '\n'));
+Dictionary.prototype.showDictionary = () => {
+    //printing the word
+    console.log(COLORS.green('word: ' + _word + '\n'));
 
-      //printing definitions
-      HELPERS.showWordData('DEFINITIONS', _definitions);
+    //printing definitions
+    HELPERS.showWordData('DEFINITIONS', _definitions);
 
-      //printing synonyms
-      HELPERS.showWordData('Synonyms', _synonyms);
+    //printing synonyms
+    HELPERS.showWordData('Synonyms', _synonyms);
 
-      //printing antonyms
-      HELPERS.showWordData('Antonyms', _antonyms);
+    //printing antonyms
+    HELPERS.showWordData('Antonyms', _antonyms);
 
-      //printing examples
-      HELPERS.showWordData('Examples', _examples);
-  };
+    //printing examples
+    HELPERS.showWordData('Examples', _examples);
+};
 
 // export dictionary module
- module.exports = Dictionary;
+module.exports = Dictionary;
